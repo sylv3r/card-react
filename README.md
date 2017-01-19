@@ -39,8 +39,16 @@ Once included, you can initialize the component. you'll need to make the compone
   // the card component can be rendered anywhere (doesn't have to be in ReactCardFormContainer).
   container="card-wrapper" // required
 
-  // an object contain the form inputs names.
-  // every input must have a unique name prop.
+  // the attribute of the form inputs used as unique identifier.
+  // Default to the `id` attribute
+  // It is strongly discouraged to use the `name` attribute since
+  // it will submit directly to the server sensible credit card informations.
+  // You should instead have a token generator or encryption logic
+  // on the client side before submitting.
+  formInputsNameAttribute="id" // optional - default "id"
+
+  // an object contain the form inputs identifiers.
+  // every input must have a unique identifier attribute.
   formInputsNames={
     {
       number: 'CCnumber', // optional — default "number"
@@ -104,4 +112,3 @@ Once included, you can initialize the component. you'll need to make the compone
   - add tests
 
 You are more than welcome to contribute. Enjoy!
-
